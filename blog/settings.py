@@ -137,6 +137,11 @@ MEDIA_URL = '/media/'
 
 INSTALLED_APPS += ('django_summernote', )
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 MESSAGE_TAGS = {
     constants.ERROR: 'alert-danger',
     constants.WARNING: 'alert-warning',
@@ -144,3 +149,7 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'alert-success',
     constants.INFO: 'alert-info',
 }
+try:
+    from .local_settigns import *
+except Exception as e:
+    print(f'Error: {e}')
