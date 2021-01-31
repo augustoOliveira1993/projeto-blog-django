@@ -32,20 +32,22 @@
         <div class="col-xl"></div>
     </div>
 
-
+    {% if comentarios %}
     <div class="row pt-5">
         <div class="col-xl"></div>
         <div class="col-xl-8">
-            <h2 class="my-3">Comentarios ({{ post.numero_comentario }})</h2>
+            <h2 class="my-3">Comentarios ({{ comentarios.count }})</h2>
 
-            <h5 class="mb-2 mt-5">{{ post.autor_post }} disse:</h5>
-            <small class="text-muted">{{ post.data_post }}</small>
-            <p class="mb-1">{{ post.comentario }}</p>
+            {% for comentario in comentarios %}
+            <h5 class="mb-2 mt-5">{{ comentario.nome_comentario }} disse:</h5>
+            <small class="text-muted">{{ comentario.data_comentario }}</small>
+            <p class="mb-1">{{ comentario.comentario }}</p>
+            {% endfor %}
 
         </div>
         <div class="col-xl"></div>
     </div>
-
+    {% endif %}
 
 
     <div class="row pt-5">
