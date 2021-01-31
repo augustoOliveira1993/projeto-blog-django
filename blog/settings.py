@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ci)=rkj&c8@&hmc2$$6vrf9ee!s)dp^0opb@+sa)rq=$5&hvk^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['34.67.147.87']
 
 
 # Application definition
@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blog_django',
+        'USER': 'cursopython',
+        'PASSWORD': 'curs0Pyth0n@169',
         'HOST': '127.0.0.1',
         'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '',
+        'NAME': 'sitedjango',
     }
 }
 
