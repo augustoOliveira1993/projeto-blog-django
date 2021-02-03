@@ -1,0 +1,58 @@
+## FONTE:
+## https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn_blog-on-ubuntu-18-04
+
+# Criando o arquivo
+sudo nano /etc/systemd/system/gunicorn_blog.socket
+##################################################
+
+# COLAR (SEM EDIÇÃO)
+[Unit]
+Description=gunicorn_blog socket
+
+[Socket]
+ListenStream=/run/gunicorn_blog.sock
+
+[Install]
+WantedBy=sockets.target
+##################################################
+
+# Criando outro arquivo
+sudo nano /etc/systemd/system/gunicorn_blog.service
+##################################################
+
+# Editar, depois Colar
+[Unit]
+Description=gunicorn_blog daemon
+Requires=gunicorn_blog.socket
+After=network.target
+
+[Service]
+User=augusto
+Group=www-data
+WorkingDirectory=/home/augusto/projeto-blog-django
+ExecStart=/home/augusto/projeto-blog-django/venv/bin/gunicorn_blog \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn_blog.sock \
+          projeto-blog-django.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+##################################################
+
+# Ativando
+sudo systemctl start gunicorn_blog.socket
+sudo systemctl enable gunicorn_blog.socket
+##################################################
+
+# Checando
+sudo systemctl status gunicorn_blog.socket
+sudo systemctl status gunicorn_blog
+curl --unix-socket /run/gunicorn_blog.sock localhost
+sudo systemctl status gunicorn_blog
+##################################################
+
+sudo rm /etc/nginx/sites-enabled/default
+sudo systemctl restart nginx & gunicorn_blog
+sudo systemctl restart gunicorn_blog
+##################################################
