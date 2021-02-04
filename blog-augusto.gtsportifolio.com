@@ -6,7 +6,7 @@ server {
 	listen [::]:443 ssl http2;
 	ssl_certificate /etc/letsencrypt/live/blog-augusto.gtsportifolio.com./fullchain.pem; # managed by Certbot
 	ssl_certificate_key /etc/letsencrypt/live/blog-augusto.gtsportifolio.com./privkey.pem; # managed by Certbot
-	ssl_trusted_certificate /etc/letsencrypt/live/blog-augusto.gtsportifolio.com./chain.pem;
+	ssl_trusted_certificate /etc/letsencrypt/live/blog-augusto.gtsportifoSlio.com./chain.pem;
 
 	# Improve HTTPS performance with session resumption
 	ssl_session_cache shared:SSL:10m;
@@ -39,11 +39,11 @@ server {
 
 	location = /favicon.ico { access_log off; log_not_found off; }
 	location /static/ {
-			root /home/luizotavio/projeto-blog-django;
+			root /home/augusto/projeto-blog-django;
 	}
 
 	location /media {
-			alias /home/luizotavio/projeto-blog-django/media/;
+			alias /home/augusto/projeto-blog-django/media/;
 	}
 
 	location / {

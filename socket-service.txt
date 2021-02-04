@@ -30,7 +30,7 @@ After=network.target
 User=augusto
 Group=www-data
 WorkingDirectory=/home/augusto/projeto-blog-django
-ExecStart=/home/augusto/projeto-blog-django/venv/bin/gunicorn_blog \
+ExecStart=/home/augusto/projeto-blog-django/venv/bin/gunicorn \
           --access-logfile - \
           --workers 3 \
           --bind unix:/run/gunicorn_blog.sock \
