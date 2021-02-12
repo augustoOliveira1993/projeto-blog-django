@@ -4,8 +4,8 @@ server {
 
 	listen 443 ssl http2;
 	listen [::]:443 ssl http2;
-	ssl_certificate /etc/letsencrypt/live/blog-augusto.gtsportifolio.com./fullchain.pem; # managed by Certbot
-	ssl_certificate_key /etc/letsencrypt/live/blog-augusto.gtsportifolio.com./privkey.pem; # managed by Certbot
+	ssl_certificate /etc/letsencrypt/live/34.67.147.87 /fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/34.67.147.87 /privkey.pem; # managed by Certbot
 	ssl_trusted_certificate /etc/letsencrypt/live/blog-augusto.gtsportifoSlio.com./chain.pem;
 
 	# Improve HTTPS performance with session resumption
@@ -35,7 +35,7 @@ server {
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html index.php;
 
-	server_name blog-augusto.gtsportifolio.com.;
+	server_name 34.67.147.87;
 
 	location = /favicon.ico { access_log off; log_not_found off; }
 	location /static/ {
@@ -85,8 +85,8 @@ server {
 		image/svg+xml;
 
   access_log off;
-	#access_log  /var/log/nginx/blog-augusto.gtsportifolio.com.-access.log;
-  error_log   /var/log/nginx/blog-augusto.gtsportifolio.com.-error.log;
+	#access_log  /var/log/nginx/34.67.147.87 -access.log;
+  error_log   /var/log/nginx/34.67.147.87 -error.log;
 
 	include /etc/nginx/common/protect.conf;
 }
