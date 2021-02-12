@@ -27,7 +27,7 @@ SECRET_KEY = 'ci)=rkj&c8@&hmc2$$6vrf9ee!s)dp^0opb@+sa)rq=$5&hvk^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['blog-augusto.gtsportifolio.com.', '34.67.147.87']
+ALLOWED_HOSTS = ['34.67.147.87']
 
 
 # Application definition
@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'cursopython',
-        'PASSWORD': 'curs0Pyth0n@169',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'NAME': 'blog_django',
+        'USER': 'cursopython',
+        'PASSWORD': 'curs0Pyth0n@169',
     }
 }
 
