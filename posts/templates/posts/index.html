@@ -31,7 +31,8 @@
                     |
                     {{ post.numero_comentario|pural_comentarios }}
                     |
-                    {{ post.categoria_post }}</small>
+                    {{ post.categoria_post }}
+                </small>
             </p>
 
             <div class="text-right">
@@ -44,5 +45,12 @@
 
 </div>
 <!--/CONTENT-->
+
+<!--{{ connection.queries|length }}-->
+<!--<p>-->
+<!--    {{ connection.queries }}-->
+<!--</p>-->
+
+
 {% include 'parciais/_pagination.html' %}
 {% endblock %}
